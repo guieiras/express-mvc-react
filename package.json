@@ -32,6 +32,9 @@
     "node-sass-middleware": "^0.11.0",
     "pg": "^6.1.2",
     "pg-hstore": "^2.3.2",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "sequelize": "^3.28.0"
   },
   "homepage": "https://github.com/guieiras/express-mvc",
