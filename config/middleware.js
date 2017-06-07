@@ -26,7 +26,7 @@ module.exports = function(app) {
     saveUninitialized: true,
     resave: true,
   }))
-  
+
   app.use(
     sassMiddleware({
       src: path.join(__dirname, '..', 'assets', 'sass'),
@@ -36,10 +36,10 @@ module.exports = function(app) {
     })
   )
   app.use(express.static('/stylesheets'))
-  
+
   app.set('models', models)
   app.set('views', path.join(__dirname, '../src/views'))
-  app.set('view engine', 'pug')
+  app.set('view engine', 'ejs')
   app.use(express.static(path.join(__dirname, '../public')))
   app.use((request, response) => {
     response.status(404)
