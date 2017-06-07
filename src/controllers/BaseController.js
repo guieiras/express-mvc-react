@@ -1,3 +1,5 @@
+import { Render } from '../views/Render'
+
 export default class BaseController {
   constructor(req, res) {
     this.request = req
@@ -10,6 +12,10 @@ export default class BaseController {
   }
 
   render(view) {
+    this.response.send(Render(view, this.vars))
+  }
+
+  renderView(view) {
     this.response.render(view, this.vars)
   }
 

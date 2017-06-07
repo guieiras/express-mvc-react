@@ -7,5 +7,5 @@ export function Render(view, vars) {
   let View = require(`./${view}`)
   let content = ReactDOMServer.renderToStaticMarkup(<View data={vars}/>)
 
-  return ejs.render(fs.readFileSync('./src/views/index.ejs').toString(), Object.assign(vars, {content}))
+  return ejs.render(fs.readFileSync('./src/views/layout/index.ejs').toString(), Object.assign(vars, {content}))
 }
