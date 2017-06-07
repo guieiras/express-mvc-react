@@ -11,7 +11,7 @@ module.exports = function() {
 
     return isVisible && isController
   }).forEach((file) => {
-    let controller = require(path.join(controllersDir, file))
+    let controller = require(path.join(controllersDir, file)).default
 
     controllers[file.slice(0, -3)] = controller
   })

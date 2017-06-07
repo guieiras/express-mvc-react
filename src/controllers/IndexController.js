@@ -1,6 +1,6 @@
-const BaseController = require('./BaseController')
+import BaseController from './BaseController'
 
-module.exports = class IndexController extends BaseController {
+export default class IndexController extends BaseController {
   index() {
     this.setVar('hello', 'Hi!')
     this.render('index')
