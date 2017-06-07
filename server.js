@@ -2,6 +2,9 @@
 const express = require('express')
 const chalk   = require('chalk')
 require('dotenv').config()
+require('babel-core/register')({
+  presets: ['es2015', 'react']
+})
 
 /* Internal imports */
 const middleware = require('./config/middleware')
