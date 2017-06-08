@@ -19,6 +19,9 @@ export default class BaseController {
     this.response.render(view, this.vars)
   }
 
+  redirect(...params) {
+    this.response.redirect(...params)
+  }
   setVar(key, value) {
     this.vars[key] = value
   }
@@ -37,7 +40,7 @@ export default class BaseController {
       return obj
     }
     else {
-      throw 'Unexpected params: paramatrize needs to receive an Array'
+      throw 'Unexpected params: paramatrize must receive an Array'
     }
   }
 }
