@@ -1,6 +1,6 @@
 # Express MVC Boilerplate
 
-Basic MVC application using Express, Sequelize and Pug.
+Basic MVC application using Express, Sequelize and ReactJS.
 
 ## Features
 
@@ -12,7 +12,51 @@ Set routes using object notation and get time and readability during development
 
 - Simple configuration
 
-Don't worry about configuration. Just get a coffee and start creating Sequelize models, Controller classes and Pug views as ever. Everything is autoloaded on server startup.
+Don't worry about configuration. Just get a coffee and start creating Sequelize models, Controller classes and React components as ever. Everything is autoloaded on server startup.
+
+Use `IndexController.js` and `Index.jsx` as examples of how you should write your Controllers and Views.
+
+- Controllers
+
+They are simple ES6 classes inheriting from `controllers/BaseController.js`. Each mathod is an action. You will point them on routes. Every controller *MUST* be saved on `src/controllers` root folder to be autoloaded.
+
+*Controller* sample
+
+```javascript
+import BaseController from './BaseController'
+
+export default class EntitiesController extends BaseController {
+  index() {
+    let entities = EntityFetcher.all()
+    this.setVar('entities', entities)
+    this.render('entities/Index.jsx')
+  }
+
+  show() {
+    let entity = EntityFetcher.find(this.params.id)
+    this.setVar('entity', entity)
+    this.render('entities/Show.jsx')
+  }
+
+  create() {
+    let entity = EntityFetcher.create(this.parametrize(['id', 'name']))
+    this.setVar('entity', entity)
+    this.render('entities/Show.jsx')
+  }
+
+  update() {
+    let entity = EntityFetcher.update(this.params.id, this.parametrize(['id', 'name']))
+    this.setVar('entity', entity)
+    this.render('entities/Show.jsx')
+  }
+
+  destroy() {
+    EntityFetcher.delete(this.params.id)
+    this.setVar('entities', EntityFetcher.all())
+    this.render('entities/Index.jsx')
+  }
+}
+```
 
 - Routes
 
